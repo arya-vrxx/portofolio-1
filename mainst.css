@@ -1,0 +1,286 @@
+:root {
+  --bg-dark: #080a16;
+  --card-bg: rgba(18, 24, 46, 0.75);
+  --cyan-glow: #00f0ff;
+  --purple-glow: #9d4edd;
+  --text: #ffffff;
+  --text-muted: #a0aec0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text);
+  padding: 30px 15px;
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Card Glassmorphism */
+.card {
+  background: var(--card-bg);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.header-card {
+  text-align: center;
+}
+
+.avatar {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  border: 2px solid var(--cyan-glow);
+  box-shadow: 0 0 15px var(--cyan-glow);
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+.username {
+  color: var(--cyan-glow);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.keahlian-badge {
+  display: inline-block;
+  background: rgba(157, 78, 221, 0.2);
+  color: #d8b4fe;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  border: 1px solid rgba(157, 78, 221, 0.4);
+  margin-bottom: 10px;
+}
+
+.bio {
+  color: #dddddd;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.lokasi {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.btn-like {
+  background: transparent;
+  border: 1px solid var(--cyan-glow);
+  color: var(--cyan-glow);
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-like:hover {
+  background: var(--cyan-glow);
+  color: var(--bg-dark);
+  box-shadow: 0 0 15px var(--cyan-glow);
+}
+
+h3 {
+  color: var(--cyan-glow);
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+/* Skill Tags */
+.tag {
+  display: inline-block;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin: 3px 2px;
+}
+
+/* Tab Pengalaman & Pendidikan */
+.tab-header {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.btn-tab {
+  background: none;
+  border: none;
+  color: #888888;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.btn-tab.active {
+  color: var(--cyan-glow);
+  border-bottom: 2px solid var(--cyan-glow);
+}
+
+.slide-timeline {
+  display: none;
+}
+
+.slide-timeline.active {
+  display: block;
+}
+
+.item-timeline {
+  border-left: 2px solid var(--purple-glow);
+  padding-left: 12px;
+  margin-bottom: 14px;
+}
+
+.item-timeline:last-child {
+  margin-bottom: 0;
+}
+
+.item-timeline h4 {
+  font-size: 13px;
+  color: #ffffff;
+}
+
+.item-timeline .tahun {
+  font-size: 11px;
+  color: var(--cyan-glow);
+  display: block;
+  margin: 2px 0 4px;
+}
+
+.item-timeline p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+/* Carousel Karya */
+.carousel-wrapper {
+  margin-bottom: 12px;
+}
+
+.slide-karya {
+  display: none;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid var(--purple-glow);
+  padding: 14px;
+  border-radius: 0 8px 8px 0;
+}
+
+.slide-karya.active {
+  display: block;
+}
+
+.karya-content h4 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.karya-content p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.btn-link {
+  display: inline-block;
+  background: transparent;
+  color: var(--cyan-glow);
+  border: 1px solid var(--cyan-glow);
+  padding: 5px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.btn-link:hover {
+  background: var(--cyan-glow);
+  color: var(--bg-dark);
+}
+
+.carousel-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-nav {
+  background: transparent;
+  border: 1px solid var(--cyan-glow);
+  color: var(--cyan-glow);
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-nav:hover {
+  background: var(--cyan-glow);
+  color: var(--bg-dark);
+}
+
+.slide-info {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Sembunyikan slide pendidikan secara default saat awal load */
+.alurnonact {
+  display: none;
+}
+
+.aluract {
+  display: block;
+}
+
+/* Pembungkus teks alur (memberi jarak antar poin) */
+.alur {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+/* Styling Judul Pekerjaan / Sekolah (h4) */
+.alur h4 {
+  margin-top: 14px;
+  margin-bottom: 4px;
+  font-size: 1.1rem;
+}
+
+/* Styling Elemen Tahun */
+.tahun {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+/* Jarak baris pada Paragraf Deskripsi */
+.alur p {
+  margin-top: 0;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
