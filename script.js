@@ -199,3 +199,19 @@ journeyDots.addEventListener(
 
   }
 );
+
+/* musik */
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+music.volume = 0.4;
+
+musicBtn.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    musicBtn.textContent = "▶️";
+  } else {
+    music.pause();
+    musicBtn.textContent = "⏯️";
+  }
+});
