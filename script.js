@@ -1,98 +1,201 @@
-// ==========================================
-// 1. SLIDER PENGALAMAN & PENDIDIKAN (2 SLIDE)
-// ==========================================
-var divPengalaman = document.getElementById('pengalaman');
-var divPendidikan = document.getElementById('pendidikan');
+/* =========================
+   CREATIONS CAROUSEL
+========================= */
 
-var btnExpBalik = document.getElementById('exp-balik');
-var btnExpLanjut = document.getElementById('exp-lanjut');
-var teksExpNomor = document.getElementById('exp-nomor');
+const track =
+  document.getElementById("track");
 
-var posisiExp = 1;
+const next =
+  document.getElementById("next");
 
-// Tombol Lanjut (Exp & Edu)
-btnExpLanjut.addEventListener('click', function() {
-  if (posisiExp < 2) {
-    posisiExp = posisiExp + 1;
-  } else {
-    posisiExp = 1;
-  }
-  updateExp();
-});
+const prev =
+  document.getElementById("prev");
 
-// Tombol Balik (Exp & Edu)
-btnExpBalik.addEventListener('click', function() {
-  if (posisiExp > 1) {
-    posisiExp = posisiExp - 1;
-  } else {
-    posisiExp = 2;
-  }
-  updateExp();
-});
+const dots =
+  document.querySelectorAll(".dots i");
 
-function updateExp() {
-  if (posisiExp === 1) {
-    divPengalaman.style.display = "block";
-    divPendidikan.style.display = "none";
-    teksExpNomor.textContent = "1 / 2";
-  } else if (posisiExp === 2) {
-    divPengalaman.style.display = "none";
-    divPendidikan.style.display = "block";
-    teksExpNomor.textContent = "2 / 2";
-  }
+let slide = 0;
+
+
+function show(n){
+
+  slide = (n + 3) % 3;
+
+  track.style.transform =
+    `translateX(-${slide * 100}%)`;
+
+
+  dots.forEach((dot, i) => {
+
+    dot.classList.toggle(
+      "active",
+      i === slide
+    );
+
+  });
+
 }
 
 
-// ==========================================
-// 2. SLIDER KUMPULAN KARYA (3 SLIDE)
-// ==========================================
-var karya1 = document.getElementById('karya1');
-var karya2 = document.getElementById('karya2');
-var karya3 = document.getElementById('karya3');
+next.onclick = () =>
+  show(slide + 1);
 
-var btnKaryaBalik = document.getElementById('lanjut'); // ID 'lanjut' di HTML = ← Balik
-var btnKaryaLanjut = document.getElementById('balik');  // ID 'balik' di HTML = Lanjut →
-var teksKaryaNomor = document.getElementById('nomor');
 
-var posisiKarya = 1;
+prev.onclick = () =>
+  show(slide - 1);
 
-// Tombol Lanjut (Karya)
-btnKaryaLanjut.addEventListener('click', function() {
-  if (posisiKarya < 3) {
-    posisiKarya = posisiKarya + 1;
-  } else {
-    posisiKarya = 1;
-  }
-  updateKarya();
+
+dots.forEach((dot, i) => {
+
+  dot.onclick = () =>
+    show(i);
+
 });
 
-// Tombol Balik (Karya)
-btnKaryaBalik.addEventListener('click', function() {
-  if (posisiKarya > 1) {
-    posisiKarya = posisiKarya - 1;
-  } else {
-    posisiKarya = 3;
-  }
-  updateKarya();
-});
 
-function updateKarya() {
-  karya1.style.display = "none";
-  karya2.style.display = "none";
-  karya3.style.display = "none";
+/* CREATIONS AUTO SLIDE */
 
-  if (posisiKarya === 1) {
-    karya1.style.display = "block";
-    teksKaryaNomor.textContent = "1 / 3";
-  } else if (posisiKarya === 2) {
-    karya2.style.display = "block";
-    teksKaryaNomor.textContent = "2 / 3";
-  } else if (posisiKarya === 3) {
-    karya3.style.display = "block";
-    teksKaryaNomor.textContent = "3 / 3";
+setInterval(() => {
+
+  show(slide + 1);
+
+}, 5000);
+
+
+
+/* =========================
+   EDUCATION & EXPERIENCE
+========================= */
+
+const journeyTrack =
+  document.getElementById(
+    "journeyTrack"
+  );
+
+
+const journeyNext =
+  document.getElementById(
+    "journeyNext"
+  );
+
+
+const journeyPrev =
+  document.getElementById(
+    "journeyPrev"
+  );
+
+
+const journeyDots =
+  document.getElementById(
+    "journeyDots"
+  );
+
+
+let journeySlide = 0;
+
+
+const journeyItems =
+  journeyTrack.children;
+
+
+
+/* CREATE DOTS */
+
+for(
+  let i = 0;
+  i < journeyItems.length;
+  i++
+){
+
+  const dot =
+    document.createElement("i");
+
+
+  if(i === 0){
+
+    dot.classList.add("active");
+
   }
+
+
+  journeyDots.appendChild(dot);
+
 }
 
-// Inisialisasi tampilan awal
-updateExp();
-updateKarya();
+
+
+/* SHOW JOURNEY */
+
+function showJourney(n){
+
+  journeySlide =
+    (n + journeyItems.length) %
+    journeyItems.length;
+
+
+  journeyTrack.style.transform =
+    `translateX(-${journeySlide * 100}%)`;
+
+
+  [
+    ...journeyDots.children
+  ].forEach((dot, i) => {
+
+    dot.classList.toggle(
+      "active",
+      i === journeySlide
+    );
+
+  });
+
+}
+
+
+
+/* BUTTON */
+
+journeyNext.onclick = () =>
+  showJourney(
+    journeySlide + 1
+  );
+
+
+journeyPrev.onclick = () =>
+  showJourney(
+    journeySlide - 1
+  );
+
+
+
+/* AUTO 3.6 DETIK */
+
+setInterval(() => {
+
+  showJourney(
+    journeySlide + 1
+  );
+
+}, 3600);
+
+
+
+/* DOT CLICK */
+
+journeyDots.addEventListener(
+  "click",
+  event => {
+
+    [
+      ...journeyDots.children
+    ].forEach((dot, i) => {
+
+      if(dot === event.target){
+
+        showJourney(i);
+
+      }
+
+    });
+
+  }
+);

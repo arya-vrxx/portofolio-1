@@ -1,286 +1,1027 @@
-:root {
-  --bg-dark: #080a16;
-  --card-bg: rgba(18, 24, 46, 0.75);
-  --cyan-glow: #00f0ff;
-  --purple-glow: #9d4edd;
-  --text: #ffffff;
-  --text-muted: #a0aec0;
+/* =========================
+   RESET
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+
+html{
+  scroll-behavior:smooth;
 }
 
-body {
-  background-color: var(--bg-dark);
-  color: var(--text);
-  padding: 30px 15px;
+
+body{
+  font-family:Inter,sans-serif;
+  background:#02030b;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-.container {
-  max-width: 480px;
-  margin: 0 auto;
+
+/* =========================
+   GIF BACKGROUND
+========================= */
+
+.background{
+  position:fixed;
+  inset:0;
+
+  z-index:-3;
+
+  background-image:url("inipotoapakah/Glow\ Music\ Video\ GIF\ by\ xponentialdesign.gif");
+
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+
+  pointer-events:none;
 }
 
-/* Card Glassmorphism */
-.card {
-  background: var(--card-bg);
-  border: 1px solid rgba(0, 240, 255, 0.25);
-  border-radius: 14px;
-  padding: 20px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
+
+/* =========================
+   DARK OVERLAY
+========================= */
+
+.background-overlay{
+  position:fixed;
+  inset:0;
+
+  z-index:-2;
+
+  background:
+    linear-gradient(
+      rgba(2,3,11,.68),
+      rgba(2,3,11,.78)
+    );
+
+  pointer-events:none;
 }
 
-.header-card {
-  text-align: center;
+
+/* =========================
+   EXTRA GLOW
+========================= */
+
+.background-overlay::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(91,52,255,.14),
+      transparent 45%
+    ),
+
+    radial-gradient(
+      circle at 15% 70%,
+      rgba(72,47,255,.10),
+      transparent 35%
+    );
+
 }
 
-.avatar {
-  width: 85px;
-  height: 85px;
-  border-radius: 50%;
-  border: 2px solid var(--cyan-glow);
-  box-shadow: 0 0 15px var(--cyan-glow);
-  margin-bottom: 12px;
-  object-fit: cover;
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+
+  position:fixed;
+
+  z-index:20;
+
+  width:100%;
+
+  padding:22px 7%;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  background:rgba(2,3,11,.72);
+
+  backdrop-filter:blur(15px);
+
+  border-bottom:
+    1px solid
+    rgba(128,92,255,.15);
+
 }
 
-.username {
-  color: var(--cyan-glow);
-  font-size: 13px;
-  margin-bottom: 8px;
+
+.logo{
+
+  font:
+    600 13px Orbitron;
+
+  letter-spacing:3px;
+
 }
 
-.keahlian-badge {
-  display: inline-block;
-  background: rgba(157, 78, 221, 0.2);
-  color: #d8b4fe;
-  padding: 4px 12px;
-  border-radius: 15px;
-  font-size: 12px;
-  border: 1px solid rgba(157, 78, 221, 0.4);
-  margin-bottom: 10px;
+
+.logo:first-letter{
+
+  color:#8c5cff;
+
 }
 
-.bio {
-  color: #dddddd;
-  font-size: 13px;
-  line-height: 1.4;
-  margin-bottom: 8px;
+
+nav{
+
+  display:flex;
+
+  gap:30px;
+
 }
 
-.lokasi {
-  color: var(--text-muted);
-  font-size: 12px;
-  margin-bottom: 15px;
+
+nav a{
+
+  color:#88889e;
+
+  text-decoration:none;
+
+  font-size:13px;
+
+  transition:.3s;
+
 }
 
-.btn-like {
-  background: transparent;
-  border: 1px solid var(--cyan-glow);
-  color: var(--cyan-glow);
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
+
+nav a:hover{
+
+  color:#fff;
+
+  text-shadow:
+    0 0 12px
+    #895cff;
+
 }
 
-.btn-like:hover {
-  background: var(--cyan-glow);
-  color: var(--bg-dark);
-  box-shadow: 0 0 15px var(--cyan-glow);
+
+/* =========================
+   MAIN
+========================= */
+
+main{
+
+  max-width:1200px;
+
+  margin:auto;
+
 }
 
-h3 {
-  color: var(--cyan-glow);
-  font-size: 15px;
-  margin-bottom: 12px;
+
+section{
+
+  padding:
+    120px
+    7%;
+
+  position:relative;
+
 }
 
-/* Skill Tags */
-.tag {
-  display: inline-block;
-  background: rgba(0, 240, 255, 0.08);
-  border: 1px solid rgba(0, 240, 255, 0.25);
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 6px;
-  font-size: 12px;
-  margin: 3px 2px;
+
+/* =========================
+   PROFILE
+========================= */
+
+.hero{
+
+  min-height:100vh;
+
+  padding-top:150px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:90px;
+
 }
 
-/* Tab Pengalaman & Pendidikan */
-.tab-header {
-  display: flex;
-  gap: 10px;
-  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
-  padding-bottom: 10px;
-  margin-bottom: 15px;
+
+.profile-img{
+
+  position:relative;
+
+  min-width:270px;
+
+  height:270px;
+
 }
 
-.btn-tab {
-  background: none;
-  border: none;
-  color: #888888;
-  font-size: 13px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 4px 8px;
+
+.profile-img::before,
+.profile-img::after{
+
+  content:"";
+
+  position:absolute;
+
+  border:
+    1px solid
+    rgba(128,92,255,.45);
+
+  border-radius:50%;
+
+  inset:-25px;
+
+  animation:
+    orbit 15s linear infinite;
+
 }
 
-.btn-tab.active {
-  color: var(--cyan-glow);
-  border-bottom: 2px solid var(--cyan-glow);
+
+.profile-img::after{
+
+  inset:-45px;
+
+  border-color:
+    rgba(72,105,255,.25);
+
+  animation-duration:22s;
+
+  transform:rotate(60deg);
+
 }
 
-.slide-timeline {
-  display: none;
+
+.profile-img img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  border-radius:50%;
+
+  border:
+    2px solid
+    rgba(128,92,255,.7);
+
+  box-shadow:
+
+    0 0 25px
+    rgba(113,60,255,.45),
+
+    0 0 70px
+    rgba(60,41,255,.25);
+
 }
 
-.slide-timeline.active {
-  display: block;
+
+.profile{
+
+  max-width:620px;
+
 }
 
-.item-timeline {
-  border-left: 2px solid var(--purple-glow);
-  padding-left: 12px;
-  margin-bottom: 14px;
+
+.profile small,
+.title small,
+.track small,
+.journey-track b{
+
+  font-family:Orbitron;
+
 }
 
-.item-timeline:last-child {
-  margin-bottom: 0;
+
+.profile small,
+.title small{
+
+  color:#8d5cff;
+
+  font-size:10px;
+
+  letter-spacing:3px;
+
 }
 
-.item-timeline h4 {
-  font-size: 13px;
-  color: #ffffff;
+
+.profile h1{
+
+  font:
+    600
+    clamp(40px,6vw,70px)
+    Orbitron;
+
+  margin:
+    15px
+    0
+    8px;
+
+  letter-spacing:2px;
+
 }
 
-.item-timeline .tahun {
-  font-size: 11px;
-  color: var(--cyan-glow);
-  display: block;
-  margin: 2px 0 4px;
+
+.profile h1 span,
+.profile h2 span,
+.title h2 span{
+
+  color:#8c50ff;
+
+  text-shadow:
+    0 0 20px
+    rgba(116,60,255,.4);
+
 }
 
-.item-timeline p {
-  font-size: 12px;
-  color: var(--text-muted);
-  line-height: 1.3;
+
+.profile label{
+
+  color:#77778e;
+
+  font-size:13px;
+
 }
 
-/* Carousel Karya */
-.carousel-wrapper {
-  margin-bottom: 12px;
+
+.profile h2{
+
+  margin:
+    28px
+    0
+    12px;
+
+  font-size:25px;
+
 }
 
-.slide-karya {
-  display: none;
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 3px solid var(--purple-glow);
-  padding: 14px;
-  border-radius: 0 8px 8px 0;
+
+.profile p{
+
+  color:#9292a8;
+
+  font-size:14px;
+
+  line-height:1.8;
+
 }
 
-.slide-karya.active {
-  display: block;
+
+.location{
+
+  color:#9990c9;
+
+  margin:18px 0;
+
 }
 
-.karya-content h4 {
-  font-size: 14px;
-  margin-bottom: 4px;
+
+.skills{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+
 }
 
-.karya-content p {
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-bottom: 10px;
+
+.skills span{
+
+  padding:
+    8px
+    14px;
+
+  border:
+    1px solid
+    rgba(128,92,255,.33);
+
+  background:
+    rgba(67,33,141,.10);
+
+  border-radius:20px;
+
+  color:#bbb3e4;
+
+  font-size:11px;
+
+  box-shadow:
+    inset
+    0 0 15px
+    rgba(113,69,255,.05);
+
 }
 
-.btn-link {
-  display: inline-block;
-  background: transparent;
-  color: var(--cyan-glow);
-  border: 1px solid var(--cyan-glow);
-  padding: 5px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: bold;
+
+/* =========================
+   TITLE
+========================= */
+
+.title{
+
+  margin-bottom:50px;
+
+  text-align:center;
+
 }
 
-.btn-link:hover {
-  background: var(--cyan-glow);
-  color: var(--bg-dark);
+
+.title h2{
+
+  font:
+    500
+    clamp(30px,5vw,46px)
+    Orbitron;
+
+  margin-top:12px;
+
 }
 
-.carousel-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+/* =========================
+   JOURNEY
+========================= */
+
+.journey-carousel{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:15px;
+
+  max-width:850px;
+
+  margin:auto;
+
 }
 
-.btn-nav {
-  background: transparent;
-  border: 1px solid var(--cyan-glow);
-  color: var(--cyan-glow);
-  padding: 4px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 12px;
+
+.journey-window{
+
+  width:100%;
+
+  overflow:hidden;
+
+  border-radius:15px;
+
 }
 
-.btn-nav:hover {
-  background: var(--cyan-glow);
-  color: var(--bg-dark);
+
+.journey-track{
+
+  display:flex;
+
+  transition:
+    .7s
+    cubic-bezier(.22,1,.36,1);
+
 }
 
-.slide-info {
-  font-size: 12px;
-  color: var(--text-muted);
+
+.journey-track article{
+
+  min-width:100%;
+
+  min-height:190px;
+
+  padding:35px;
+
+  border:
+    1px solid
+    rgba(128,92,255,.27);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(23,18,46,.75),
+      rgba(9,9,26,.90)
+    );
+
+  border-radius:15px;
+
+  box-shadow:
+    inset
+    0 0 30px
+    rgba(108,60,255,.05),
+
+    0 0 25px
+    rgba(78,39,255,.05);
+
 }
 
-/* Sembunyikan slide pendidikan secara default saat awal load */
-.alurnonact {
-  display: none;
+
+.journey-track b{
+
+  color:#8b5cff;
+
+  font-size:9px;
+
+  letter-spacing:2px;
+
 }
 
-.aluract {
-  display: block;
+
+.journey-track time{
+
+  float:right;
+
+  color:#68687e;
+
+  font-size:11px;
+
 }
 
-/* Pembungkus teks alur (memberi jarak antar poin) */
-.alur {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 15px;
+
+.journey-track h3{
+
+  margin:
+    25px
+    0
+    8px;
+
+  font-size:24px;
+
 }
 
-/* Styling Judul Pekerjaan / Sekolah (h4) */
-.alur h4 {
-  margin-top: 14px;
-  margin-bottom: 4px;
-  font-size: 1.1rem;
+
+.journey-track h4{
+
+  color:#9188bb;
+
+  font-weight:400;
+
+  font-size:13px;
+
 }
 
-/* Styling Elemen Tahun */
-.tahun {
-  display: inline-block;
-  font-size: 0.85rem;
-  color: #666;
-  margin-bottom: 8px;
+
+/* =========================
+   CAROUSEL BUTTON
+========================= */
+
+.journey-carousel>button,
+.carousel>button{
+
+  flex-shrink:0;
+
+  width:44px;
+
+  height:44px;
+
+  border:
+    1px solid
+    rgba(128,92,255,.4);
+
+  border-radius:50%;
+
+  background:
+    rgba(9,9,28,.85);
+
+  color:#fff;
+
+  font-size:26px;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 0 20px
+    rgba(103,58,255,.08);
+
+  transition:.3s;
+
 }
 
-/* Jarak baris pada Paragraf Deskripsi */
-.alur p {
-  margin-top: 0;
-  margin-bottom: 14px;
-  line-height: 1.6;
+
+.journey-carousel>button:hover,
+.carousel>button:hover{
+
+  background:#6b3cff;
+
+  box-shadow:
+    0 0 25px
+    rgba(115,61,255,.5);
+
+}
+
+
+/* =========================
+   DOTS
+========================= */
+
+.journey-dots,
+.dots{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:7px;
+
+  margin-top:22px;
+
+}
+
+
+.journey-dots i,
+.dots i{
+
+  width:20px;
+
+  height:3px;
+
+  background:#292744;
+
+  cursor:pointer;
+
+  transition:.3s;
+
+}
+
+
+.journey-dots i.active,
+.dots i.active{
+
+  background:#8755ff;
+
+  box-shadow:
+    0 0 10px
+    #7542ff;
+
+}
+
+
+/* =========================
+   CREATIONS
+========================= */
+
+.carousel{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:15px;
+
+}
+
+
+.slider{
+
+  overflow:hidden;
+
+  border:
+    1px solid
+    rgba(128,92,255,.27);
+
+  border-radius:16px;
+
+  width:100%;
+
+  box-shadow:
+    0 0 35px
+    rgba(59,26,255,.06);
+
+}
+
+
+.track{
+
+  display:flex;
+
+  transition:
+    .7s
+    cubic-bezier(.22,1,.36,1);
+
+}
+
+
+.track article{
+
+  min-width:100%;
+
+  display:grid;
+
+  grid-template-columns:
+    1.2fr
+    .8fr;
+
+  background:
+    rgba(7,7,22,.88);
+
+}
+
+
+.track article>img{
+
+  width:100%;
+
+  height:430px;
+
+  object-fit:cover;
+
+}
+
+
+.track article>div{
+
+  padding:45px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+}
+
+
+.track small{
+
+  color:#8d5cff;
+
+  font-size:10px;
+
+  letter-spacing:3px;
+
+}
+
+
+.track h3{
+
+  font:
+    500
+    28px
+    Orbitron;
+
+  margin:
+    18px
+    0;
+
+}
+
+
+.track p{
+
+  color:#9292a8;
+
+  font-size:14px;
+
+  line-height:1.8;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+  max-width:1100px;
+
+  margin:auto;
+
+  padding:30px;
+
+  border-top:
+    1px solid
+    rgba(128,92,255,.2);
+
+  display:flex;
+
+  justify-content:space-between;
+
+  font-size:11px;
+
+  color:#66667b;
+
+}
+
+
+footer b{
+
+  color:#8c5cff;
+
+}
+
+
+footer a{
+
+  color:#aaa3c9;
+
+  text-decoration:none;
+
+}
+
+
+footer a:hover{
+
+  color:#fff;
+
+}
+
+
+/* =========================
+   ORBIT ANIMATION
+========================= */
+
+@keyframes orbit{
+
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:800px){
+
+  .hero{
+
+    flex-direction:column;
+
+    text-align:center;
+
+    gap:55px;
+
+  }
+
+
+  .profile-img{
+
+    min-width:210px;
+
+    width:210px;
+
+    height:210px;
+
+  }
+
+
+  .skills{
+
+    justify-content:center;
+
+  }
+
+
+  .track article{
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .track article>img{
+
+    height:300px;
+
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  header{
+
+    padding:
+      18px
+      20px;
+
+  }
+
+
+  nav{
+
+    display:none;
+
+  }
+
+
+  section{
+
+    padding:
+      90px
+      20px;
+
+  }
+
+
+  .hero{
+
+    padding:
+      140px
+      20px
+      80px;
+
+  }
+
+
+  .profile h1{
+
+    font-size:36px;
+
+  }
+
+
+  .profile h2{
+
+    font-size:21px;
+
+  }
+
+
+  .journey-carousel,
+  .carousel{
+
+    gap:6px;
+
+  }
+
+
+  .journey-carousel>button,
+  .carousel>button{
+
+    width:35px;
+
+    height:35px;
+
+    font-size:20px;
+
+  }
+
+
+  .journey-track article{
+
+    padding:25px;
+
+  }
+
+
+  .journey-track time{
+
+    float:none;
+
+    display:block;
+
+    margin-top:9px;
+
+  }
+
+
+  .track article>img{
+
+    height:220px;
+
+  }
+
+
+  .track article>div{
+
+    padding:25px;
+
+  }
+
+
+  .track h3{
+
+    font-size:21px;
+
+  }
+
+
+  footer{
+
+    flex-direction:column;
+
+    gap:15px;
+
+    text-align:center;
+
+  }
+
 }
