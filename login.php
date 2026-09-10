@@ -1,3 +1,22 @@
+<?php
+session_start();
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+$username = $_POST['username'];
+$password = $_POST['password'];
+// asumsi sudah ada proses cek ke database
+if ($username == 'kuronosu' && $password == 'W1ndy_M1d3pz@i') {
+// simpan data ke session
+$_SESSION['is_login'] = true;
+$_SESSION['username'] = $username;
+$_SESSION['role'] = 'admin';
+header('Location: dashboard.php');
+exit();
+} else {
+$error = 'Username atau password salah';
+}
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +27,23 @@
 </head>
 <body>
   
+<h2>Login</h2>
 
-    Hai <?php echo $_POST["name"]; ?><br>
-    Passwordmu: <?php echo $_POST["password"]; ?>
+    <form action="/login" method="POST">
+        <div>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username">
+        </div>
+        <br>
+        <div>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password">
+        </div>
+        <br>
+        <div>
+            <button type="submit">Masuk</button>
+        </div>
+    </form>
 
 </body>
 </html>
