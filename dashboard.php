@@ -2,6 +2,7 @@
 session_start();
 require 'session.php'; // proteksi halaman (dibahas di bagian 5)
 ?>
+
 <!DOCTYPE html>
 <html>
 <head><title>Dashboard</title></head>

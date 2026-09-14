@@ -1,21 +1,4 @@
-<?php
-session_start();
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-$username = $_POST['username'];
-$password = $_POST['password'];
-// asumsi sudah ada proses cek ke database
-if ($username == 'admin' && $password == 'W1ndy') {
-// simpan data ke session
-$_SESSION['is_login'] = true;
-$_SESSION['username'] = $username;
-$_SESSION['role'] = 'admin';
-header('Location: dashboard.php');
-exit();
-} else {
-$error = 'Username atau password salah';
-}
-}
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +12,7 @@ $error = 'Username atau password salah';
   
 <h2>Login</h2>
 
-    <form action="/login" method="POST">
+    <form action="ceklog.php" method="POST">
         <div>
             <label for="username">Username:</label><br>
             <input type="text" id="username" name="username">
