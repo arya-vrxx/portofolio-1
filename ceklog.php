@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $username = $_POST['username'];
 $password = $_POST['password'];
 // asumsi sudah ada proses cek ke database
-if ($username == 'iniadmin' && $password == 'admin13245768') {
+if ($username == 'iniadmin' && $password == '13245768') {
 // simpan data ke session
 $_SESSION['is_login'] = true;
 $_SESSION['username'] = $username;
@@ -16,4 +16,4 @@ echo "Username atau password salah";
 $error = 'Username atau password salah';
 }
 }
-?>
+?> 
