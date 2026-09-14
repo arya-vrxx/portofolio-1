@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $username = $_POST['username'];
 $password = $_POST['password'];
 // asumsi sudah ada proses cek ke database
-if ($username == 'kuronosu' && $password == 'W1ndy_M1d3pz@i') {
+if ($username == 'admin' && $password == 'W1ndy') {
 // simpan data ke session
 $_SESSION['is_login'] = true;
 $_SESSION['username'] = $username;
