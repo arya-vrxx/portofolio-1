@@ -1,5 +1,4 @@
 <?php
-// Konfigurasi database
 $host = 'localhost';
 $db = 'portofirst';
 $user = 'root';
@@ -14,7 +13,7 @@ $options = [
 try {
  $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
- // Jangan tampilkan detail error asli ke pengunjung
+
  error_log($e->getMessage());
  die('Koneksi database gagal. Silakan coba lagi nanti.');
 }

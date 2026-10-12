@@ -169,31 +169,30 @@ html, body {
   margin-top: auto !important;
 }
 
-/* 7. KONTEN UTAMA (AREA TENGAH) */
+/* 7. KONTEN UTAMA (AREA TENGAH / ATAS) */
 .main-content {
   flex: 1 !important;
   height: 100% !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: center !important; /* Presisi vertikal */
-  align-items: center !important;     /* Presisi horizontal */
+  justify-content: flex-start !important; 
+  align-items: stretch !important;        
   padding: 30px !important;
-  overflow-y: auto !important;
+  overflow-y: auto !important;           
   background: transparent !important;
 }
 
-/* 8. KARTU WELCOME */
+/* 8. KARTU WELCOME & CONTAINER KONTEN */
 .welcome-card {
-  width: 100% !important;
-  max-width: 420px !important;
+  width: 100 !important;
+  max-width: 100% !important;
   background: rgba(7, 7, 22, 0.85) !important;
   border: 1px solid rgba(128, 92, 255, 0.28) !important;
   padding: 35px 30px !important;
   border-radius: 16px !important;
-  text-align: center !important;
   backdrop-filter: blur(15px) !important;
   box-shadow: 0 0 35px rgba(113, 60, 255, 0.18) !important;
-  margin: auto !important;
+  margin: 0 !important;                
 }
 
 .welcome-card small {
@@ -235,4 +234,71 @@ html, body {
   color: #66667b !important;
   font-size: 11px !important;
   flex-shrink: 0 !important;
+}
+
+/* ============================================================
+   STYLING KHUSUS ELEMEN PROJEK & TABEL (UNTOUCHED HTML)
+============================================================ */
+
+/* Judul H1 Bawaan */
+.main-content h1 {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 1.4rem !important;
+  font-weight: 500 !important;
+  color: #fff !important;
+  margin-bottom: 20px !important;
+  border-bottom: 1px solid rgba(128, 92, 255, 0.25) !important;
+  padding-bottom: 10px !important;
+  letter-spacing: 1px !important;
+}
+
+/* Tabel Bawaan (Memperbaiki border="1" bawaan) */
+.main-content table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border: 1px solid rgba(128, 92, 255, 0.25) !important;
+  margin-top: 15px !important;
+  font-size: 13px !important;
+  background: rgba(2, 3, 11, 0.4) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+/* Header Tabel (TH) */
+.main-content table th {
+  background: rgba(128, 92, 255, 0.18) !important;
+  color: #b388ff !important;
+  text-align: left !important;
+  padding: 12px 15px !important;
+  border: 1px solid rgba(128, 92, 255, 0.25) !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+}
+
+/* Isian Tabel (TD) */
+.main-content table td {
+  padding: 12px 15px !important;
+  border: 1px solid rgba(128, 92, 255, 0.12) !important;
+  color: #d1d1e0 !important;
+  vertical-align: middle !important;
+}
+
+/* Efek Hover Baris Tabel */
+.main-content table tr:hover {
+  background: rgba(140, 92, 255, 0.08) !important;
+}
+
+/* Link Dalam Tabel */
+.main-content table a {
+  color: #8c50ff !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.main-content table a:hover {
+  color: #fff !important;
+  text-shadow: 0 0 10px #895cff !important;
 }

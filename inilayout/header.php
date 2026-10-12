@@ -24,8 +24,9 @@ $current = basename($_SERVER['PHP_SELF']);
     <header class="dashboard-header">
       <div class="logo">+ DASHBOARD</div>
       <nav>
-        <a href="dashboard.php" class="active">Dashboard</a>
-        <a href="meprofile.php">Profile</a>
+        <a href="dashboard.php" class="<?php echo ($current == 'dashboard.php') ? 'active' : ''; ?>">Dashboard</a>
+        <a href="meprofile.php" class="<?php echo ($current == 'meprofile.php') ? 'active' : ''; ?>">Profile</a>
+        <a href="projects.php" class="<?php echo ($current == 'projects.php') ? 'active' : ''; ?>">Projects</a>
         <a href="logout.php" class="logout">Logout</a>
       </nav>
     </header>
