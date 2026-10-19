@@ -302,3 +302,70 @@ html, body {
   color: #fff !important;
   text-shadow: 0 0 10px #895cff !important;
 }
+
+/* ============================================================
+   HEADER KARTU & TOMBOL TAMBAH PROJECT
+============================================================ */
+.card-header {
+  display: flex !important;
+  justify-content: space-between !important; /* Dorong judul ke kiri, tombol ke kanan */
+  align-items: center !important;
+  border-bottom: 1px solid rgba(128, 92, 255, 0.25) !important;
+  padding-bottom: 12px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Biar garis garis bawah lama di h1 hilang karena diganti border .card-header */
+.card-header h1 {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Tombol + Tambah Project */
+.btn-add {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(140, 92, 255, 0.2) !important;
+  color: #fff !important;
+  border: 1px solid rgba(140, 92, 255, 0.4) !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  font-family: 'Segoe UI', sans-serif !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 12px rgba(140, 92, 255, 0.15) !important;
+}
+
+.btn-add:hover {
+  background: rgba(140, 92, 255, 0.35) !important;
+  border-color: rgba(140, 92, 255, 0.7) !important;
+  box-shadow: 0 0 20px rgba(140, 92, 255, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+.dashboard-form input[type="text"],
+.dashboard-form input[type="url"],
+.dashboard-form input[type="date"],
+.dashboard-form textarea {
+  width: 100% !important;
+  padding: 10px 14px !important;
+  background: rgba(2, 3, 11, 0.6) !important;
+  border: 1px solid rgba(128, 92, 255, 0.25) !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  font-size: 13px !important;
+  font-family: 'Segoe UI', sans-serif !important;
+  outline: none !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Memperbaiki warna icon kalender di input date */
+.dashboard-form input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}

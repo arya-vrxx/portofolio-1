@@ -31,7 +31,10 @@ require 'inilayout/sidebar.php';
 <main class="main-content">
   <div class="welcome-card">
 
-    <h1>Project Dashboard</h1>
+    <div class="card-header">
+      <h1>Project Dashboard</h1>
+      <a href="addproject.php" class="btn-add">+ Project Baru</a>
+    </div>
 
     <?php if (!empty($error_msg)): ?>
         <p style="color: #ff4d4d; background: rgba(255,77,77,0.1); padding: 10px; border-radius: 6px;">
